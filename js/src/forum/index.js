@@ -92,6 +92,10 @@ app.initializers.add('serakoi/flarumstaffbadge', () => {
     });
 
     extend(EditUserModal.prototype, 'fields', function (items) {
+        // Try to print attributes
+        console.log('canEditStaffBadge: ' + app.session.user.attribute('canEditStaffBadge'));
+        console.log('canEditTagList: ' + app.session.user.attribute('canEditTagList'));
+        console.log(this.attrs.user.data.attributes);
         if (app.session.user.attribute('canEditStaffBadge')) {
             items.add('hasbadge',
                 <div className="Form-group">
